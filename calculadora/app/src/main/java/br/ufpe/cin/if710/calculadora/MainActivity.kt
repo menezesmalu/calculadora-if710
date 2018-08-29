@@ -11,17 +11,48 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         text_info.text = ""
+        var isResult = false
         //Listener para os numeros na tela
-        btn_0.setOnClickListener{ text_info.text = text_info.text.toString() + "0"}
-        btn_1.setOnClickListener{ text_info.text = text_info.text.toString() + "1"}
-        btn_2.setOnClickListener{ text_info.text = text_info.text.toString() + "2"}
-        btn_3.setOnClickListener{ text_info.text = text_info.text.toString() + "3"}
-        btn_4.setOnClickListener{ text_info.text = text_info.text.toString() + "4"}
-        btn_5.setOnClickListener{ text_info.text = text_info.text.toString() + "5"}
-        btn_6.setOnClickListener{ text_info.text = text_info.text.toString() + "6"}
-        btn_7.setOnClickListener{ text_info.text = text_info.text.toString() + "7"}
-        btn_8.setOnClickListener{ text_info.text = text_info.text.toString() + "8"}
-        btn_9.setOnClickListener{ text_info.text = text_info.text.toString() + "9"}
+        btn_0.setOnClickListener{
+            if(isResult) text_info.text = "0" else text_info.text = text_info.text.toString() + "0"
+            isResult = false
+        }
+        btn_1.setOnClickListener{
+            if(isResult) text_info.text = "1" else text_info.text = text_info.text.toString() + "1"
+            isResult = false
+        }
+        btn_2.setOnClickListener{
+            if(isResult) text_info.text = "2" else text_info.text = text_info.text.toString() + "2"
+            isResult = false
+        }
+        btn_3.setOnClickListener{
+            if(isResult) text_info.text = "3" else text_info.text = text_info.text.toString() + "3"
+            isResult = false
+        }
+        btn_4.setOnClickListener{
+            if(isResult) text_info.text = "4" else text_info.text = text_info.text.toString() + "4"
+            isResult = false
+        }
+        btn_5.setOnClickListener{
+            if(isResult) text_info.text = "5" else text_info.text = text_info.text.toString() + "5"
+            isResult = false
+        }
+        btn_6.setOnClickListener{
+            if(isResult) text_info.text = "6" else text_info.text = text_info.text.toString() + "6"
+            isResult = false
+        }
+        btn_7.setOnClickListener{
+            if(isResult) text_info.text = "7" else text_info.text = text_info.text.toString() + "7"
+            isResult = false
+        }
+        btn_8.setOnClickListener{
+            if(isResult) text_info.text = "8" else text_info.text = text_info.text.toString() + "8"
+            isResult = false
+        }
+        btn_9.setOnClickListener{
+            if(isResult) text_info.text = "8" else text_info.text = text_info.text.toString() + "8"
+            isResult = false
+        }
 
         //Listener para as operações na tela
         btn_Divide.setOnClickListener{ text_info.text = text_info.text.toString() + "/"}
@@ -34,7 +65,10 @@ class MainActivity : Activity() {
         btn_Power.setOnClickListener{ text_info.text = text_info.text.toString() + "^"}
         btn_Clear.setOnClickListener{ text_info.text = ""}
 
-        btn_Equal.setOnClickListener{ text_info.text = eval(text_info.text.toString()).toString() }
+        btn_Equal.setOnClickListener{
+            text_info.text = eval(text_info.text.toString()).toString()
+            isResult = true
+        }
     }
 
     //Como usar a função:
