@@ -70,8 +70,12 @@ class MainActivity : Activity() {
         }
 
         btn_Equal.setOnClickListener{
-            text_calc.setText(eval(text_info.text.toString()).toString())
-            isResult = true
+            try {
+                text_calc.setText(eval(text_info.text.toString()).toString())
+                isResult = true
+            } catch (e: Exception){
+                Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
