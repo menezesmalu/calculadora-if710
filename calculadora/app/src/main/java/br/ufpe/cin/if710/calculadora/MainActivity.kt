@@ -50,7 +50,7 @@ class MainActivity : Activity() {
             isResult = false
         }
         btn_9.setOnClickListener{
-            if(isResult) text_info.text = "8" else text_info.text = text_info.text.toString() + "8"
+            if(isResult) text_info.text = "9" else text_info.text = text_info.text.toString() + "9"
             isResult = false
         }
 
