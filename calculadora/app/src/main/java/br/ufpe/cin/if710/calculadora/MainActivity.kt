@@ -2,12 +2,38 @@ package br.ufpe.cin.if710.calculadora
 
 import android.app.Activity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        text_info.text = ""
+        //Listener para os numeros na tela
+        btn_0.setOnClickListener{ text_info.text = text_info.text.toString() + "0"}
+        btn_1.setOnClickListener{ text_info.text = text_info.text.toString() + "1"}
+        btn_2.setOnClickListener{ text_info.text = text_info.text.toString() + "2"}
+        btn_3.setOnClickListener{ text_info.text = text_info.text.toString() + "3"}
+        btn_4.setOnClickListener{ text_info.text = text_info.text.toString() + "4"}
+        btn_5.setOnClickListener{ text_info.text = text_info.text.toString() + "5"}
+        btn_6.setOnClickListener{ text_info.text = text_info.text.toString() + "6"}
+        btn_7.setOnClickListener{ text_info.text = text_info.text.toString() + "7"}
+        btn_8.setOnClickListener{ text_info.text = text_info.text.toString() + "8"}
+        btn_9.setOnClickListener{ text_info.text = text_info.text.toString() + "9"}
+
+        //Listener para as operações na tela
+        btn_Divide.setOnClickListener{ text_info.text = text_info.text.toString() + "/"}
+        btn_Multiply.setOnClickListener{ text_info.text = text_info.text.toString() + "*"}
+        btn_Subtract.setOnClickListener{ text_info.text = text_info.text.toString() + "-"}
+        btn_Add.setOnClickListener{ text_info.text = text_info.text.toString() + "+"}
+        btn_Dot.setOnClickListener{ text_info.text = text_info.text.toString() + "."}
+        btn_LParen.setOnClickListener{ text_info.text = text_info.text.toString() + "("}
+        btn_RParen.setOnClickListener{ text_info.text = text_info.text.toString() + ")"}
+        btn_Power.setOnClickListener{ text_info.text = text_info.text.toString() + "^"}
+        btn_Clear.setOnClickListener{ text_info.text = ""}
+
     }
 
     //Como usar a função:
