@@ -3,6 +3,7 @@ package br.ufpe.cin.if710.calculadora
 import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
@@ -63,10 +64,13 @@ class MainActivity : Activity() {
         btn_LParen.setOnClickListener{ text_info.text = text_info.text.toString() + "("}
         btn_RParen.setOnClickListener{ text_info.text = text_info.text.toString() + ")"}
         btn_Power.setOnClickListener{ text_info.text = text_info.text.toString() + "^"}
-        btn_Clear.setOnClickListener{ text_info.text = ""}
+        btn_Clear.setOnClickListener{
+            text_info.text = ""
+            text_calc.setText("")
+        }
 
         btn_Equal.setOnClickListener{
-            text_info.text = eval(text_info.text.toString()).toString()
+            text_calc.setText(eval(text_info.text.toString()).toString())
             isResult = true
         }
     }
@@ -157,6 +161,7 @@ class MainActivity : Activity() {
                         throw RuntimeException("Função desconhecida: " + func)
                 } else {
                     throw RuntimeException("Caractere inesperado: " + ch.toChar())
+
                 }
                 if (eat('^')) x = Math.pow(x, parseFactor()) // potência
                 return x
