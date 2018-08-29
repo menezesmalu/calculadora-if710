@@ -34,6 +34,7 @@ class MainActivity : Activity() {
         btn_Power.setOnClickListener{ text_info.text = text_info.text.toString() + "^"}
         btn_Clear.setOnClickListener{ text_info.text = ""}
 
+        btn_Equal.setOnClickListener{ text_info.text = eval(text_info.text.toString()).toString() }
     }
 
     //Como usar a função:
