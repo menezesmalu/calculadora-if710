@@ -19,16 +19,16 @@ class MainActivity : Activity() {
 
         //Listener para os numeros na tela
         //a condição é pra verificar se é pra reiniciar a expressão ou continua na mesma.
-        btn_0.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "0" else text_calc.setText(text_calc.text.toString() + "0") }
-        btn_1.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "1" else text_calc.setText(text_calc.text.toString() + "1")}
-        btn_2.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "2" else text_calc.setText(text_calc.text.toString() + "2") }
-        btn_3.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "3" else text_calc.setText(text_calc.text.toString() + "3")}
-        btn_4.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "4" else text_calc.setText(text_calc.text.toString() + "4") }
-        btn_5.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "5" else text_calc.setText(text_calc.text.toString() + "5")}
-        btn_6.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "6" else text_calc.setText(text_calc.text.toString() + "6") }
-        btn_7.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "7" else text_calc.setText(text_calc.text.toString() + "7") }
-        btn_8.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "8" else text_calc.setText(text_calc.text.toString() + "8") }
-        btn_9.setOnClickListener{ if(text_info.text.equals("")) text_info.text = "9" else text_calc.setText(text_calc.text.toString() + "9") }
+        btn_0.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("0") else text_calc.setText(text_calc.text.toString() + "0") }
+        btn_1.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("1") else text_calc.setText(text_calc.text.toString() + "1")}
+        btn_2.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("2") else text_calc.setText(text_calc.text.toString() + "2") }
+        btn_3.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("3") else text_calc.setText(text_calc.text.toString() + "3")}
+        btn_4.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("4") else text_calc.setText(text_calc.text.toString() + "4") }
+        btn_5.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("5") else text_calc.setText(text_calc.text.toString() + "5")}
+        btn_6.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("6") else text_calc.setText(text_calc.text.toString() + "6") }
+        btn_7.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("7") else text_calc.setText(text_calc.text.toString() + "7") }
+        btn_8.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("8") else text_calc.setText(text_calc.text.toString() + "8") }
+        btn_9.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("9") else text_calc.setText(text_calc.text.toString() + "9") }
 
         //Listener para as operações na tela
         btn_Divide.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "/")}
