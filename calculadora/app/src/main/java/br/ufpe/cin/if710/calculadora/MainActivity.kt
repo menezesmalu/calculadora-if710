@@ -16,36 +16,34 @@ class MainActivity : Activity() {
 
         text_info.text = savedInstanceState?.getString(keyEXPR)
         text_calc.setText(savedInstanceState?.getString(keyRESULT))
-
+        var hasResult = false
         //Listener para os numeros na tela
         //a condição é pra verificar se é pra reiniciar a expressão ou continua na mesma.
-        btn_0.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("0") else text_calc.setText(text_calc.text.toString() + "0") }
-        btn_1.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("1") else text_calc.setText(text_calc.text.toString() + "1")}
-        btn_2.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("2") else text_calc.setText(text_calc.text.toString() + "2") }
-        btn_3.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("3") else text_calc.setText(text_calc.text.toString() + "3")}
-        btn_4.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("4") else text_calc.setText(text_calc.text.toString() + "4") }
-        btn_5.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("5") else text_calc.setText(text_calc.text.toString() + "5")}
-        btn_6.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("6") else text_calc.setText(text_calc.text.toString() + "6") }
-        btn_7.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("7") else text_calc.setText(text_calc.text.toString() + "7") }
-        btn_8.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("8") else text_calc.setText(text_calc.text.toString() + "8") }
-        btn_9.setOnClickListener{ if(text_info.text.equals("")) text_calc.setText("9") else text_calc.setText(text_calc.text.toString() + "9") }
+        btn_0.setOnClickListener{ if(hasResult) { text_calc.setText("0") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "0") }
+        btn_1.setOnClickListener{ if(hasResult) { text_calc.setText("1") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "1")}
+        btn_2.setOnClickListener{ if(hasResult) { text_calc.setText("2") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "2") }
+        btn_3.setOnClickListener{ if(hasResult) { text_calc.setText("3") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "3")}
+        btn_4.setOnClickListener{ if(hasResult) { text_calc.setText("4") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "4") }
+        btn_5.setOnClickListener{ if(hasResult) { text_calc.setText("5") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "5")}
+        btn_6.setOnClickListener{ if(hasResult) { text_calc.setText("6") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "6") }
+        btn_7.setOnClickListener{ if(hasResult) { text_calc.setText("7") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "7") }
+        btn_8.setOnClickListener{ if(hasResult) { text_calc.setText("8") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "8") }
+        btn_9.setOnClickListener{ if(hasResult) { text_calc.setText("9") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "9") }
 
         //Listener para as operações na tela
-        btn_Divide.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "/")}
-        btn_Multiply.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "*")}
-        btn_Subtract.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "-")}
-        btn_Add.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "+")}
-        btn_Dot.setOnClickListener{ text_calc.setText(text_calc.text.toString() + ".")}
-        btn_LParen.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "(")}
-        btn_RParen.setOnClickListener{ text_calc.setText(text_calc.text.toString() + ")")}
-        btn_Power.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "^")}
-        btn_Clear.setOnClickListener{
-            text_info.text = ""
-            text_calc.setText("")
-        }
+        btn_Divide.setOnClickListener  { text_calc.setText(text_calc.text.toString() + "/") ; hasResult = false }
+        btn_Multiply.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "*") ; hasResult = false }
+        btn_Subtract.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "-") ; hasResult = false }
+        btn_Add.setOnClickListener     { text_calc.setText(text_calc.text.toString() + "+") ; hasResult = false }
+        btn_Dot.setOnClickListener     { text_calc.setText(text_calc.text.toString() + ".") ; hasResult = false }
+        btn_LParen.setOnClickListener  { text_calc.setText(text_calc.text.toString() + "(") ; hasResult = false }
+        btn_RParen.setOnClickListener  { text_calc.setText(text_calc.text.toString() + ")") ; hasResult = false }
+        btn_Power.setOnClickListener   { text_calc.setText(text_calc.text.toString() + "^") ; hasResult = false }
+        btn_Clear.setOnClickListener   { text_info.text = "" ; text_calc.setText("") ; hasResult = false }
         btn_Equal.setOnClickListener{
             try {
                 text_info.text = eval(text_calc.text.toString()).toString()
+                hasResult = true
             } catch (e: Exception){
                 Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
             }
