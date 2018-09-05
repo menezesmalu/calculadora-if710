@@ -16,7 +16,7 @@ class MainActivity : Activity() {
 
         text_info.text = savedInstanceState?.getString(keyEXPR)
         text_calc.setText(savedInstanceState?.getString(keyRESULT))
-        var hasResult = false
+        var hasResult = false //Sempre falso, exceto quando é logo depois do botão btn_Equal ser apertado
         //Listener para os numeros na tela
         //a condição é pra verificar se é pra reiniciar a expressão ou continua na mesma.
         btn_0.setOnClickListener{ if(hasResult) { text_calc.setText("0") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "0") }
@@ -30,7 +30,9 @@ class MainActivity : Activity() {
         btn_8.setOnClickListener{ if(hasResult) { text_calc.setText("8") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "8") }
         btn_9.setOnClickListener{ if(hasResult) { text_calc.setText("9") ; hasResult = false} else text_calc.setText(text_calc.text.toString() + "9") }
 
-        //Listener para as operações na tela
+        //Listener para as operações na tela.
+        //Não tem a condição de resultado pois, caso a pessoa digite uma operação, pode ser que ela deseje continuar o que tinha sido escrito antes
+        // (comportamento similar ao da calculadora do android, porém ela só tem um campo e a expressão é substituída) pelo resultado
         btn_Divide.setOnClickListener  { text_calc.setText(text_calc.text.toString() + "/") ; hasResult = false }
         btn_Multiply.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "*") ; hasResult = false }
         btn_Subtract.setOnClickListener{ text_calc.setText(text_calc.text.toString() + "-") ; hasResult = false }
@@ -45,7 +47,8 @@ class MainActivity : Activity() {
                 text_info.text = eval(text_calc.text.toString()).toString()
                 hasResult = true
             } catch (e: Exception){
-                Toast.makeText(applicationContext, e.toString(), Toast.LENGTH_SHORT).show()
+                //lançando um toast com a exceção capturada, apenas com a mensagem da mesma
+                Toast.makeText(applicationContext, e.message, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -143,11 +146,10 @@ class MainActivity : Activity() {
             }
         }.parse()
     }
+    //salvando a expressão e o resultado pra sobreviverem à mudanças de configuracao
     override fun onSaveInstanceState(outState: Bundle?) {
-
         outState?.putString(keyEXPR,text_info.text.toString())
         outState?.putString(keyRESULT,text_calc.text.toString())
-        //outState?.putString(keyLIFECYCLE,lifecycleLog.text.toString())
         super.onSaveInstanceState(outState)
     }
 }
